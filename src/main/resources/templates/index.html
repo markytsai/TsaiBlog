@@ -1,0 +1,289 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tsaizhenya的个人博客</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Tsaizhenya的个人博客"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
+          type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'/>
+
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <div>
+                <h2 style="color: #a29997;font-size: 20px;font-weight: 700;">
+                    <a href="/index" data-original-title="写博客、记日志、闲聊扯淡鼓捣技术" data-toggle="tooltip"
+                       data-placement="bottom">Tsaizhenya的博客
+                    </a>
+                </h2>
+                <p class="site-description">写博客、记日志、闲聊扯淡鼓捣技术</p>
+            </div>
+        </div>
+
+        <!--导航栏-->
+        <div class="head-nav">
+            <span class="menu"> </span>
+            <ul class="cl-effect-1">
+                <li class="active"><a th:href="@{/}">首页</a></li>
+                <li><a th:href="@{/blogs}">博客</a></li>
+                <li><a th:href="services.html">服务</a></li>
+                <li><a th:href="404.html">短代码</a></li>
+                <li><a th:href="about.html">关于我</a></li>
+                <li><a th:href="contact.html">联系我</a></li>
+                <li><a th:href="login.html">登录</a></li>
+                <!--<div class="clearfix"></div>-->
+            </ul>
+        </div>
+        <!--<div class="clearfix"></div>-->
+    </div>
+</div>
+<!-- header -->
+<div class="container">
+    <div class="col-md-9 bann-left">
+        <!-- banner -->
+        <div class="banner">
+            <div class="header-slider">
+                <div class="slider">
+                    <div class="callbacks_container">
+                        <ul class="rslides" id="slider">
+                            <li>
+                                <img src="images/1.jpg" class="img-responsive" alt="">
+                                <div class="caption">
+                                    <h3>海上升明月</h3>
+                                    <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo
+                                        volutpat a, convallis ac, laoreet enim. Phasellus.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/4.jpg" class="img-responsive" alt="">
+                                <div class="caption">
+                                    <h3>天涯共此时 </h3>
+                                    <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.
+                                        Ut molestie a, ultricies porta urna. Vestibulu. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/5.jpg" class="img-responsive" alt="">
+                                <div class="caption">
+                                    <h3>举头望明月</h3>
+                                    <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
+                                        malesuada ultricies. Curabitur et ligula. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="images/6.jpg" class="img-responsive" alt="">
+                                <div class="caption">
+                                    <h3>低头思故乡</h3>
+                                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada
+                                        elit lectus felis, malesuada .</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- banner -->
+        <!-- nam-matis -->
+        <div class="nam-matis">
+            <div class="nam-matis-top">
+                <div class="col-md-6 nam-matis-1">
+                    <a href="/blogDetail"><img src="images/5.jpg" class="img-responsive" alt=""></a>
+                    <h3><a href="/blogDetail">uspendisse a pellentesque dui</a></h3>
+                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
+                        felis, malesuada ultricies. Curabitur et ligula.</p>
+                </div>
+                <div class="col-md-6 nam-matis-1">
+                    <a href="/blogDetail"><img src="images/6.jpg" class="img-responsive" alt=""></a>
+                    <h3><a href="/blogDetail">Suspendisse a pellentesque dui</a></h3>
+                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
+                        felis, malesuada ultricies. Curabitur et ligula.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="nam-matis-top">
+                <div class="col-md-6 nam-matis-1">
+                    <a href="/blogDetail"><img src="images/4.jpg" class="img-responsive" alt=""></a>
+                    <h3><a href="/blogDetail">Suspendisse a pellentesque dui</a></h3>
+                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
+                        felis, malesuada ultricies. Curabitur et ligula.</p>
+                </div>
+                <div class="col-md-6 nam-matis-1">
+                    <a href="/blogDetail"><img src="images/1.jpg" class="img-responsive" alt=""></a>
+                    <h3><a href="/blogDetail">Suspendisse a pellentesque dui</a></h3>
+                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
+                        felis, malesuada ultricies. Curabitur et ligula.</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- nam-matis -->
+    </div>
+
+    <div class="col-md-3 bann-right">
+        <!--搜索框-->
+        <div class="b-search">
+            <form>
+                <input type="text" value="Search" onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = 'Search';}">
+                <input type="submit" value="">
+            </form>
+        </div>
+
+        <h3>最新博客</h3>
+        <div class="blo-top">
+            <div class="blog-grids">
+                <div class="blog-grid-left">
+                    <a href="/blogDetail"><img src="images/1b.jpg" class="img-responsive" alt=""></a>
+                </div>
+                <div class="blog-grid-right">
+                    <h4><a href="/blogDetail">Little Invaders </a></h4>
+                    <p>pellentesque dui, non felis. Maecenas male </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="blog-grids">
+                <div class="blog-grid-left">
+                    <a href="/blogDetail"><img src="images/2b.jpg" class="img-responsive" alt=""></a>
+                </div>
+                <div class="blog-grid-right">
+                    <h4><a href="/blogDetail">Little Invaders </a></h4>
+                    <p>pellentesque dui, non felis. Maecenas male </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="blog-grids">
+                <div class="blog-grid-left">
+                    <a href=""><img src="images/3b.jpg" class="img-responsive" alt=""></a>
+                </div>
+                <div class="blog-grid-right">
+                    <h4><a href="/blogDetail">Little Invaders </a></h4>
+                    <p>pellentesque dui, non felis. Maecenas male </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <h3>分类</h3>
+        <div class="blo-top">
+            <li><a href="#">|| Java框架</a></li>
+            <li><a href="#">|| 操作系统</a></li>
+            <li><a href="#">|| 计算机网络</a></li>
+            <li><a href="#">|| 数据库</a></li>
+            <li><a href="#">|| 算法</a></li>
+            <li><a href="#">|| 编程艺术</a></li>
+        </div>
+
+        <h3>简信</h3>
+        <div class="blo-top">
+            <div class="name">
+                <form>
+                    <input type="text" placeholder="email" required="">
+                </form>
+            </div>
+            <div class="button">
+                <form>
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="fle-xsel">
+        <ul id="flexiselDemo3">
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/6.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/5.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/1.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/4.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/6.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="banner-1">
+                        <img src="images/1.jpg" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="footer">
+        <div class="col-md-3 foot-1">
+            <h4>相关网站</h4>
+            <ul>
+                <li><a href="http://www.baidu.com" target="_blank">|| 百度一下</a></li>
+                <li><a href="https://www.google.com.hk" target="_blank">|| Google Search</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 foot-1">
+            <h4>其他事项</h4>
+            <ul>
+                <li><a href="#">|| 郑重声明</a></li>
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="copyright">
+            <p>Copyrights © 2015 Voguish All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+
+</body>
+</html>

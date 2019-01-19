@@ -1,0 +1,27 @@
+server:
+  address: localhost
+  port: 8081
+
+spring:
+  thymeleaf:
+    cache: true
+    check-template: true
+    check-template-location: true
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: utf-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/tsai_blog?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: caizhenya1997
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.ilsxh.blog.entity
+  mapper-locations: classpath:mapper/*.xml
+#  config-location: classpath:mybatis/mybatis-config.xml
+

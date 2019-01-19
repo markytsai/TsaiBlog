@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tsaizhenya的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Voguish Responsive web template, Bootstrap Web Templates, "/>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
+          type='text/css'>
+
+    <link th:href="@{http://localhost:8081/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{http://localhost:8081/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{http://localhost:8081/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{http://localhost:8081/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
+</head>
+<body>
+<!-- header -->
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <div>
+                <h2 style="color: #a29997;font-size: 20px;font-weight: 700;">
+                    <a th:href="@{/index}" data-original-title="写博客、记日志、闲聊扯淡鼓捣技术" data-toggle="tooltip"
+                       data-placement="bottom">Tsaizhenya的博客
+                    </a>
+                </h2>
+                <p class="site-description">写博客、记日志、闲聊扯淡鼓捣技术</p>
+            </div>
+        </div>
+
+        <div class="head-nav">
+            <span class="menu"> </span>
+            <ul class="cl-effect-1">
+                <li class="active"><a th:href="@{/}">首页</a></li>
+                <li><a th:href="@{/blogs}">博客</a></li>
+                <li><a th:href="services.html">服务</a></li>
+                <li><a th:href="404.html">短代码</a></li>
+                <li><a th:href="about.html">关于我</a></li>
+                <li><a th:href="contact.html">联系我</a></li>
+                <li><a th:href="login.html">登录</a></li>
+                <!--<div class="clearfix"></div>-->
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- header -->
+<!-- content -->
+<div class="container">
+    <div class="content-top">
+
+        <div class="single">
+            <div class="single-top">
+                <div class="blog-title">
+                    <p>
+                    <h3 th:text="${blog.blogTitle}"></h3></p>
+                </div>
+                <div class="artical-links">
+                    <ul style="padding-left: 0;">
+                        <li>
+                            <small></small>
+                            <span th:text="${blog.blogAddTime}"/></li>
+                        <li><a href="#">
+                            <small class="admin"></small>
+                            <span>Tsaizhenya</span></a></li>
+                        <li><a href="#">
+                            <small class="no"></small>
+                            <span>No comments</span></a></li>
+                        <li><a href="#">
+                            <small class="posts"></small>
+                            <span>View posts</span></a></li>
+                        <li><a href="#">
+                            <small class="link"></small>
+                            <span>permalink</span></a></li>
+                    </ul>
+                </div>
+
+                <p th:utext="${blog.blogContent}"></p>
+
+            </div>
+            <div class="blog-content-right">
+                <div class="b-search">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+                <!--start-twitter-weight-->
+                <div class="twitter-weights">
+                    <h3>Tweet Widget</h3>
+                    <div class="twitter-weight-grid">
+                        <h4><span> </span>John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a>
+                        </p>
+                        <i><a href="#">2 days ago</a></i>
+                    </div>
+                    <div class="twitter-weight-grid">
+                        <h4><span> </span>John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a>
+                        </p>
+                        <i><a href="#">2 days ago</a></i>
+                    </div>
+                    <a class="twittbtn" href="#">See all Tweets</a>
+                </div>
+                <!--//End-twitter-weight-->
+                <!-- start-tag-weight-->
+                <div class="b-tag-weight">
+                    <h3>Tags Weight</h3>
+                    <ul>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">consectetur</a></li>
+                        <li><a href="#">dolore</a></li>
+                        <li><a href="#">aliqua</a></li>
+                        <li><a href="#">sit amet</a></li>
+                        <li><a href="#">ipsum</a></li>
+                        <li><a href="#">Lorem</a></li>
+                        <li><a href="#">consectetur</a></li>
+                        <li><a href="#">dolore</a></li>
+                        <li><a href="#">aliqua</a></li>
+                        <li><a href="#">sit amet</a></li>
+                        <li><a href="#">ipsum</a></li>
+                    </ul>
+                </div>
+                <!---- //End-tag-weight---->
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- content -->
+
+    <div class="footer">
+        <div class="col-md-3 foot-1">
+            <h4>相关网站</h4>
+            <ul>
+                <li><a href="http://www.baidu.com" target="_blank">|| 百度一下</a></li>
+                <li><a href="https://www.google.com.hk" target="_blank">|| Google Search</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 foot-1">
+            <h4>其他事项</h4>
+            <ul>
+                <li><a href="#">|| 郑重声明</a></li>
+            </ul>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="copyright">
+            <p>Copyrights © 2015 Voguish All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/blog.js"></script>
+
+</body>
+</html>
