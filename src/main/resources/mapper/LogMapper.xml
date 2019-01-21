@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ilsxh.blog.mapper.LogMapper">
+
+    <insert id="insertLog">
+        INSERT INTO t_log (log_username, create_time, log_desc, log_duration, user_ip, log_level, log_type, req_param, res_result, req_method)
+        VALUES (#{log.logUsername}, #{log.createTime}, #{log.logDesc}, #{log.logDuration},
+        #{log.userIp}, #{log.logLevel}, #{log.logType}, #{log.reqParam}, #{log.resResult},
+        #{log.reqMethods})
+    </insert>
+
+</mapper>

@@ -34,8 +34,29 @@ body a {
     -ms-transition: 0.5s all;
 }
 
+.head-container {
+    padding-left: 78px;
+    padding-right: 85px;
+    background-color: white;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.page-nav {
+    line-height: 40px;
+    height: 40px;
+    font-size: 12px;
+    border-bottom: #000 2px solid;
+}
+
 .header {
-    padding: 2em 0;
+    padding: 1em 0;
+}
+
+.card {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
 }
 
 .logo {
@@ -54,7 +75,7 @@ body a {
 .head-nav {
     float: right;
     padding: 1em 1em;
-    background: #a29997;
+    background: #ffffff;
 }
 
 /*--*/
@@ -85,6 +106,10 @@ body a {
     margin: 0;
 }
 
+.site-description {
+
+}
+
 *,
 *:after,
 *::before {
@@ -106,7 +131,7 @@ body a {
 }
 
 .head-nav ul li a:hover, .head-nav ul li.active a {
-    color: #FFF;
+    /*color: #FFF;*/
 }
 
 ul a:hover,
@@ -946,14 +971,14 @@ h3.m_3 {
 /*----*/
 .blog-content-left {
     float: left;
-    width: 74%;
+    width: 69%;
     padding: 1em;
     border: 1px solid #D8DADC;
 }
 
 .blog-content-right {
     float: right;
-    width: 23.5%;
+    width: 28.5%;
     border: 1px solid #D8DADC;
     padding: 1em;
 }
@@ -1222,9 +1247,9 @@ i.adm1 {
 
 .b-tag-weight ul li a {
     background: #a29997;
-    padding: 0.5em 1em;
+    padding: 0.5em 0.5em;
     font-size: 0.875em;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: #FFF;
     font-weight: 700;
     display: inline-block;
@@ -1606,6 +1631,8 @@ i.tag {
 .blog {
     background: rgba(243, 243, 243, 0.55);
     padding: 0em 0 0;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .succs {
@@ -1628,7 +1655,7 @@ i.tag {
 
 .single-top {
     float: left;
-    width: 74%;
+    width: 69%;
     padding: 1em;
     border: 1px solid #D8DADC;
 }

@@ -25,4 +25,14 @@ public class IndexController {
         logger.error("日志输出 error");
         return "blogs";
     }
+
+    @RequestMapping("/contactMe")
+    public String contactMe() {
+        return "contact";
+    }
+
+    @RequestMapping("/about.html")
+    public String aboutMe() {
+        return "about";
+    }
 }

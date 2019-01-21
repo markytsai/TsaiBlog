@@ -11,4 +11,8 @@ public interface BlogMapper {
     Blog selectBlogByBlogId(Integer blogId);
 
     List<Blog> selectBlogList();
+
+    List<Blog> selectRecentBlogs();
+
+    List<Blog> selectHotBlogs();
 }

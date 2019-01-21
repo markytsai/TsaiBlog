@@ -30,4 +30,22 @@
         select *
         from t_blog
     </select>
+
+    <select id="selectRecentBlogs" resultMap="baseResultMap">
+        SELECT blog_id, blog_title, blog_add_time
+        from t_blog
+        order by blog_add_time desc
+        limit 6
+    </select>
+
+    <select id="selectHotBlogs" resultMap="baseResultMap">
+        SELECT blog_id, blog_title, blog_add_time
+        from t_blog
+        order by blog_clicknum desc
+        limit 5
+    </select>
+
+
+    
+
 </mapper>

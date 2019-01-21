@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -23,36 +17,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 <!-- header -->
-<div class="header">
-    <div class="container">
-        <div class="logo">
-            <div>
-                <h2 style="color: #a29997;font-size: 20px;font-weight: 700;">
-                    <a href="/index" data-original-title="写博客、记日志、闲聊扯淡鼓捣技术" data-toggle="tooltip"
-                       data-placement="bottom">Tsaizhenya的博客
-                    </a>
-                </h2>
-                <p class="site-description">写博客、记日志、闲聊扯淡鼓捣技术</p>
-            </div>
-        </div>
+<div th:include="common/header :: header"></div>
+<!--<div class="head-container" style="height: 80px;">-->
+    <!--<div class="header">-->
+        <!--<div class="logo">-->
+            <!--<div>-->
+                <!--<h2 style="color: #a29997;font-size: 20px;font-weight: 700;">-->
+                    <!--<a href="/" data-original-title="写博客、记日志、闲聊扯淡鼓捣技术" data-toggle="tooltip"-->
+                       <!--data-placement="bottom">Tsaizhenya的博客-->
+                    <!--</a>-->
+                <!--</h2>-->
+                <!--<p class="site-description">写博客、记日志、闲聊扯淡鼓捣技术</p>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <!--导航栏-->
-        <div class="head-nav">
-            <span class="menu"> </span>
-            <ul class="cl-effect-1">
-                <li class="active"><a th:href="@{/}">首页</a></li>
-                <li><a th:href="@{/blogs}">博客</a></li>
-                <li><a th:href="services.html">服务</a></li>
-                <li><a th:href="404.html">短代码</a></li>
-                <li><a th:href="about.html">关于我</a></li>
-                <li><a th:href="contact.html">联系我</a></li>
-                <li><a th:href="login.html">登录</a></li>
-                <!--<div class="clearfix"></div>-->
-            </ul>
-        </div>
-        <!--<div class="clearfix"></div>-->
-    </div>
-</div>
+        <!--&lt;!&ndash;导航栏&ndash;&gt;-->
+        <!--<div class="head-nav">-->
+            <!--<span class="menu"> </span>-->
+            <!--<ul class="cl-effect-1">-->
+                <!--<li class="active"><a th:href="@{/}">首页</a></li>-->
+                <!--<li><a th:href="@{/blogs}">博客</a></li>-->
+                <!--<li><a th:href="@{/service}">微服务</a></li>-->
+                <!--<li><a th:href="@{/codeSnipet}">短代码</a></li>-->
+                <!--<li><a th:href="@{/aboutMe}">关于我</a></li>-->
+                <!--<li><a th:href="@{/contactMe}">联系我</a></li>-->
+                <!--<li><a th:href="@{/login}">登录</a></li>-->
+                <!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
 <!-- header -->
 <div class="container">
     <div class="col-md-9 bann-left">
@@ -65,33 +60,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li>
                                 <img src="images/1.jpg" class="img-responsive" alt="">
                                 <div class="caption">
-                                    <h3>海上升明月</h3>
-                                    <p>Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo
-                                        volutpat a, convallis ac, laoreet enim. Phasellus.</p>
+                                    <h3>银烛秋光冷画屏</h3>
+                                    <p>秋夜，白色的烛光映着冷清的画屏</p>
                                 </div>
                             </li>
                             <li>
                                 <img src="images/4.jpg" class="img-responsive" alt="">
                                 <div class="caption">
-                                    <h3>天涯共此时 </h3>
-                                    <p>Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.
-                                        Ut molestie a, ultricies porta urna. Vestibulu. </p>
+                                    <h3>轻罗小扇扑流萤</h3>
+                                    <p>我手执绫罗小扇，轻盈地扑打流萤</p>
                                 </div>
                             </li>
                             <li>
                                 <img src="images/5.jpg" class="img-responsive" alt="">
                                 <div class="caption">
-                                    <h3>举头望明月</h3>
-                                    <p>Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
-                                        malesuada ultricies. Curabitur et ligula. </p>
+                                    <h3>天阶夜色凉如水</h3>
+                                    <p>天街上的夜色，有如井水般地清凉</p>
                                 </div>
                             </li>
                             <li>
                                 <img src="images/6.jpg" class="img-responsive" alt="">
                                 <div class="caption">
-                                    <h3>低头思故乡</h3>
-                                    <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada
-                                        elit lectus felis, malesuada .</p>
+                                    <h3>坐看牵牛织女星</h3>
+                                    <p>卧榻仰望星空，牵牛星正对织女星</p>
                                 </div>
                             </li>
                         </ul>
@@ -257,29 +248,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <div class="clearfix"></div>
     </div>
-    <div class="footer">
-        <div class="col-md-3 foot-1">
-            <h4>相关网站</h4>
-            <ul>
-                <li><a href="http://www.baidu.com" target="_blank">|| 百度一下</a></li>
-                <li><a href="https://www.google.com.hk" target="_blank">|| Google Search</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3 foot-1">
-            <h4>其他事项</h4>
-            <ul>
-                <li><a href="#">|| 郑重声明</a></li>
-            </ul>
-        </div>
-
-        <div class="clearfix"></div>
-        <div class="copyright">
-            <p>Copyrights © 2015 Voguish All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a>
-            </p>
-        </div>
-    </div>
 </div>
-
+<div th:include="common/footer :: footer"></div>
 <script src="js/jquery.min.js"></script>
 <script src="js/index.js"></script>
 <script src="js/responsiveslides.min.js"></script>

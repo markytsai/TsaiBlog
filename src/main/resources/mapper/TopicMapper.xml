@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ilsxh.blog.mapper.TopicMapper">
+
+    <resultMap id="topicResultMap" type="com.ilsxh.blog.entity.Topic">
+        <id column="topic_id" property="topicId" jdbcType="BIGINT"/>
+        <result column="topic_name" property="topicName" jdbcType="BIGINT"/>
+        <result column="relate_blog_num" property="relateBlogNum" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <resultMap id="baseBlogResultMap" type="com.ilsxh.blog.entity.Blog">
+        <id column="blog_id" property="blogId" jdbcType="BIGINT"/>
+        <result column="blog_title" property="blogTitle" jdbcType="VARCHAR"/>
+        <result column="blog_summary" property="blogSummary" jdbcType="VARCHAR"/>
+        <result column="blog_images" property="blogImages" jdbcType="VARCHAR"/>
+        <result column="blog_clickNum" property="blogClicknum" jdbcType="BIGINT"/>
+        <result column="blog_update_time" property="blogUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="blog_add_time" property="blogAddTime" jdbcType="TIMESTAMP"/>
+        <result column="blog_content" property="blogContent" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="baseBlogColumnList">
+        b.blog_id, b.blog_title, b.blog_summary, b.blog_images, b.blog_clickNum, b.blog_update_time,
+        b.blog_add_time, b.blog_content
+    </sql>
+
+    <sql id="topicField">
+        t.topic_id, t.topic_name, count(t.topic_id) as relate_blog_num
+    </sql>
+
+
+    <select id="selectTopicList" resultMap="topicResultMap">
+        select
+        <include refid="topicField"/>
+        from t_topic AS t right join mid_blog_topic as mbt on t.topic_id = mbt.topic_id
+        group by t.topic_id;
+    </select>
+
+    <select id="selectTopicByTopicId" resultMap="topicResultMap">
+        select *
+        from t_topic
+        where topic_id = @{topicId}
+    </select>
+
+    <select id="getBlogListByTopicId" resultMap="baseBlogResultMap">
+        select
+        <include refid="baseBlogColumnList"/>
+        from t_blog as b
+        inner join mid_blog_topic as mbt on b.blog_id = mbt.blog_id
+        where mbt.topic_id = #{topicId}
+
+    </select>
+
+    <select id="selectRelatedTopics" resultMap="topicResultMap">
+        select t.topic_id, t.topic_name
+        from t_topic as t
+        inner join mid_blog_topic as mbt on t.topic_id = mbt.topic_id
+        where mbt.blog_id = #{blogId}
+    </select>
+</mapper>
