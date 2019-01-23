@@ -29,7 +29,9 @@
                         <div class="blog-artical-info">
                             <div class="blog-artical-info-head">
                                 <h2><a th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"></a></h2>
-                                <h6>Posted on <span  th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by Tsaizenya</h6>
+                                <h6>Posted on <span
+                                        th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by
+                                    Tsaizenya</h6>
 
                             </div>
                             <div class="blog-artical-info-text">
@@ -93,7 +95,8 @@
                     <h3>标签墙</h3>
                     <ul>
                         <li th:each="topic: ${topicList}">
-                            <a th:href="@{'/topic/' + ${topic.topicId}}" th:text="${topic.topicName} + '(' + ${topic.relateBlogNum} + ')'"/>
+                            <a th:href="@{'/topic/' + ${topic.topicId}}"
+                               th:text="${topic.topicName} + '(' + ${topic.relateBlogNum} + ')'"/>
                         </li>
                     </ul>
                 </div>
@@ -115,32 +118,8 @@
 
         </div>
     </div>
-    <!-- /Blog -->
-
-
 </div>
 <div th:include="common/footer :: footer"></div>
-<!--<div class="footer">-->
-    <!--<div class="col-md-3 foot-1">-->
-        <!--<h4>相关网站</h4>-->
-        <!--<ul>-->
-            <!--<li><a href="http://www.baidu.com" target="_blank">|| 百度一下</a></li>-->
-            <!--<li><a href="https://www.google.com.hk" target="_blank">|| Google Search</a></li>-->
-        <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="col-md-3 foot-1">-->
-        <!--<h4>其他事项</h4>-->
-        <!--<ul>-->
-            <!--<li><a href="#">|| 郑重声明</a></li>-->
-        <!--</ul>-->
-    <!--</div>-->
-
-    <!--<div class="clearfix"></div>-->
-    <!--<div class="copyright">-->
-        <!--<p>Copyrights © 2015 Voguish All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a>-->
-        <!--</p>-->
-    <!--</div>-->
-<!--</div>-->
 <script src="js/jquery.min.js"></script>
 <script src="js/index.js"></script>
 <script src="js/responsiveslides.min.js"></script>

@@ -188,7 +188,7 @@ ul a:focus {
 
 .banner {
     padding: 1em 1em;
-    border: 1px solid #D8DADC;
+    /*border: 1px solid #D8DADC;*/
 }
 
 /*--- slider-css --*/
@@ -657,7 +657,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 
 .fle-xsel {
     padding: 2em 4em;
-    border: 1px solid #D8DADC;
+    /*border: 1px solid #D8DADC;*/
 }
 
 /*-- flexisel --*/
@@ -680,6 +680,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-size: 1em;
     line-height: 2em;
     text-decoration: none;
+    color: gray;
 }
 
 .footer li a:hover {
@@ -704,10 +705,12 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-size: 1em;
     line-height: 1.8em;
     margin: 0;
+    color: gray;
 }
 
 .copyright p a {
     text-decoration: none;
+    color: gray;
 }
 
 /*-- about --*/
@@ -982,14 +985,16 @@ h3.m_3 {
     float: left;
     width: 69%;
     padding: 1em;
-    border: 1px solid #D8DADC;
+    background-color: white;
+    /*border: 1px solid #D8DADC;*/
 }
 
 .blog-content-right {
     float: right;
     width: 28.5%;
-    border: 1px solid #D8DADC;
+    /*border: 1px solid #D8DADC;*/
     padding: 1em;
+    background-color: white;
 }
 
 .blog-artical-info-head h2 a {
@@ -1388,7 +1393,8 @@ i.adm1 {
 
 .contact {
     padding: 2em 1em;
-    border: 1px solid #D8DADC;
+    background-color: white;
+    /*border: 1px solid #D8DADC;*/
 }
 
 .sub-button {
@@ -1666,7 +1672,8 @@ i.tag {
     float: left;
     width: 69%;
     padding: 1em;
-    border: 1px solid #D8DADC;
+    background-color: white;
+    /*border: 1px solid #D8DADC;*/
 }
 
 i.adm {
@@ -2936,4 +2943,12 @@ div.register-bottom-grid {
     a.b-home {
         font-size: 0.8125em;
     }
+}
+
+.col-md-3 h4 {
+    color: #ffffff;
+}
+
+.col-md-3 h4 ul li a {
+    color: gray;;
 }
