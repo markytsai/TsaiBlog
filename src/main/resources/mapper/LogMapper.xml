@@ -3,6 +3,27 @@
 
 <mapper namespace="com.ilsxh.blog.mapper.LogMapper">
 
+    <resultMap id="baseResultMap" type="com.ilsxh.blog.entity.LogMessage">
+        <id column="log_id" property="logId" jdbcType="BIGINT"/>
+        <result column="log_username" property="logUsername" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="VARCHAR"/>
+        <result column="log_desc" property="logDesc" jdbcType="VARCHAR"/>
+        <result column="log_duration" property="logDuration" jdbcType="BIGINT"/>
+        <result column="user_ip" property="userIp" jdbcType="TIMESTAMP"/>
+        <result column="log_level" property="logLevel" jdbcType="TIMESTAMP"/>
+        <result column="log_type" property="logType" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_logs
+    </sql>
+
+    <!--基本列-->
+    <sql id="BASE_COLUMN">
+        l.log_id, l.log_desc, l.res_result, l.log_username, l.user_ip, l.create_time
+    </sql>
+
     <insert id="insertLog">
         INSERT INTO t_log (log_username, create_time, log_desc, log_duration, user_ip, log_level, log_type, req_param, res_result, req_method)
         VALUES (#{log.logUsername}, #{log.createTime}, #{log.logDesc}, #{log.logDuration},
@@ -10,4 +31,12 @@
         #{log.reqMethods})
     </insert>
 
+    <select id="getLogs" resultMap="baseResultMap">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        t_log AS l
+        ORDER BY
+        l.log_id DESC
+    </select>
 </mapper>

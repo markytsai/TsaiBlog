@@ -1,12 +1,14 @@
 package com.ilsxh.blog.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ilsxh.blog.annotation.Loggable;
+import com.ilsxh.blog.dto.BlogFilter;
 import com.ilsxh.blog.entity.Blog;
 import com.ilsxh.blog.mapper.BlogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -33,5 +35,24 @@ public class BlogService {
     @Loggable(descpition = "获取热门博客")
     public List<Blog> selectHotBlogList() {
         return blogMapper.selectHotBlogs();
+    }
+
+    public void addBlog(Blog blog) {
+        blogMapper.addBlog(blog);
+    }
+
+    public PageInfo<Blog> selectBlogListByFilter(BlogFilter blogFilter, int pageNum, int pageSize) {
+        if (null == blogFilter) {
+            return null;
+        }
+//            throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
+        PageHelper.startPage(pageNum, pageSize);
+        List<Blog> contents = blogMapper.getBlogsByFilter(blogFilter);
+        PageInfo<Blog> pageInfo = new PageInfo<>(contents);
+        return pageInfo;
+    }
+
+    public void deleteBlogById(Integer blogId) {
+        blogMapper.deleteBlogById(blogId);
     }
 }

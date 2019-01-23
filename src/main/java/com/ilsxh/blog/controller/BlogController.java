@@ -4,9 +4,11 @@ import com.ilsxh.blog.entity.Blog;
 import com.ilsxh.blog.entity.Topic;
 import com.ilsxh.blog.service.BlogService;
 import com.ilsxh.blog.service.TopicService;
+import com.ilsxh.blog.service.admin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,11 +19,13 @@ public class BlogController {
 
     private BlogService blogService;
     private TopicService topicService;
+    private UserService userService;
 
     @Autowired
-    public BlogController(BlogService blogService, TopicService topicService) {
+    public BlogController(BlogService blogService, TopicService topicService, UserService userService) {
         this.blogService = blogService;
         this.topicService = topicService;
+        this.userService = userService;
     }
 
     @RequestMapping("/blog/{blogId}")
@@ -39,7 +43,7 @@ public class BlogController {
         List<Blog> recentBlogList = blogService.selectRecentBlogs();
         model.addAttribute("recentBlogList", recentBlogList);
 
-        return "singleBlog";
+        return "front/singleBlog";
     }
 
 
@@ -54,6 +58,34 @@ public class BlogController {
         List<Blog> hotBlogList = blogService.selectHotBlogList();
         model.addAttribute("hotBlogList", hotBlogList);
 
-        return "blogs";
+        return "front/blogs";
     }
+
+    @GetMapping("/admin/login")
+    public String toLogin() {
+        return "front/login";
+    }
+
+//    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+//    @ResponseBody
+//    public Response toLogin(HttpServletRequest request, HttpServletResponse response,
+//                            @RequestParam(name = "username", required = true) String username,
+//                            @RequestParam(name = "password", required = true) String password,
+//                            @RequestParam(name = "remember_me", required = false) String remember_me) {
+//        try {
+//            // 调用Service登录方法
+//            Integer userId = userService.login(username, password);
+//            // 设置用户信息session
+//            request.getSession().setAttribute(Constant.LOGIN_SESSION_KEY, userId);
+//            // 判断是否勾选记住我
+//            if (remember_me != null && remember_me.length() != 0) {
+//                CommonUtil.setCookie(response, userId);
+//            }
+//            // 写入日志
+//        } catch (Exception e) {
+//            throw new RuntimeException(e.getMessage());
+//        }
+//        // 返回登录成功信息
+//        return Response.success();
+//    }
 }

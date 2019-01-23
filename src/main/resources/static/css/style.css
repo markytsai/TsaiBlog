@@ -49,6 +49,15 @@ body a {
     border-bottom: #000 2px solid;
 }
 
+.intro-card {
+    font-size: 1em;
+    font-weight: 400;
+    margin-top: 17px;
+    margin-bottom: 11px;
+    border-bottom: #000 2px solid;
+    padding-bottom: 5px;
+}
+
 .header {
     padding: 1em 0;
 }

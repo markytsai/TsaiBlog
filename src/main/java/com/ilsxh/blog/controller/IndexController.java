@@ -12,27 +12,16 @@ public class IndexController {
 
     @RequestMapping(value = {"/", "/index"})
     public String returnIndex() {
-        return "index";
+        return "front/index";
     }
 
-    @RequestMapping("/blogLists")
-    public String returnBlogList() {
-        //日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为WARN，则低于WARN的信息都不会输出。
-        logger.trace("日志输出 trace");
-        logger.debug("日志输出 debug");
-        logger.info("日志输出 info");
-        logger.warn("日志输出 warn");
-        logger.error("日志输出 error");
-        return "blogs";
-    }
-
-    @RequestMapping("/contactMe")
+    @RequestMapping("/contact")
     public String contactMe() {
-        return "contact";
+        return "front/contact";
     }
 
-    @RequestMapping("/about.html")
+    @RequestMapping("/about")
     public String aboutMe() {
-        return "about";
+        return "front/about";
     }
 }

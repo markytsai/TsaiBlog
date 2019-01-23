@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='管理中心',active='home'">
+<header th:replace="admin/fragments/header::headerFragment(${title},${active})"></header>
+<body class="fixed-left">
+<div id="wrapper">
+    <div th:replace="admin/fragments/header::header-body"></div>
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">仪表盘</h4>
+                    </div>
+
+                    <!--上部四个概览图框-->
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="mini-stat clearfix bx-shadow bg-info">
+                                <span class="mini-stat-icon"><i class="fa fa-quote-right" aria-hidden="true"></i></span>
+                                <div class="mini-stat-info text-right">
+                                    发表了<span class="counter" th:text="${statistics.BlogNum}"></span>篇文章
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="mini-stat clearfix bg-purple bx-shadow">
+                                <span class="mini-stat-icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+                                <div class="mini-stat-info text-right">
+                                    收到了<span class="counter" th:text="${statistics.commentNum}"></span>条留言
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="mini-stat clearfix bg-success bx-shadow">
+                                <span class="mini-stat-icon">
+                                    <i class="fa fa-cloud-upload" baria-hidden="true"></i>
+                                </span>
+                                <div class="mini-stat-info text-right">
+                                    上传了<span class="counter" th:text="${statistics.attachFileNum}"></span>个附件
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="mini-stat clearfix bg-primary bx-shadow">
+                                <span class="mini-stat-icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+                                <div class="mini-stat-info text-right">
+                                    友链了<span class="counter" th:text="${statistics.linkNum}"></span>个好友
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--下部三个卡片，陈述详情-最新文章，最新留言，系统日志-->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">最新文章</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" style="font-size: 12px;" th:each="blog : ${blogList}">
+                                            <span class="badge badge-primary" th:title="${blog.blogClicknum}+'次浏览'"
+                                                  th:text="${blog.blogClicknum}"></span>
+                                            <a target="_blank" th:href="@{'/blog/' + ${blog.blogId}}"
+                                               th:text="${blog.blogTitle}"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">最新留言</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div th:if="${commentList}== null and ${#lists.size(commentList)}==0">
+                                        <div class="alert alert-warning">
+                                            还没有收到留言.
+                                        </div>
+                                    </div>
+                                    <ul class="list-group"
+                                        th:unless="${commentList}==null and ${#lists.size(commentList)}==0">
+                                        <li class="list-group-item" style="font-size: 12px;" th:each="comment : ${commentList}">
+                                            <div th:if="${comment.url} != null and ${comment.url} != ''"
+                                                 style="padding-bottom: 3px;">
+                                                <a th:href="@{${comment.url}}" target="_blank"
+                                                   th:text="caizhenya"></a>
+                                                <th:block th:unless="${comment.url}!=null and ${comment.url}!=''"
+                                                          th:text="caizhenya"/>
+                                                于
+                                                <th:block
+                                                        th:text="${#dates.format(comment.commentTime, 'yyyy-MM-dd hh:mm:ss')}"/>
+                                            </div>
+                                            <a th:href="@{'/detail/' +${comment.commentId} + '#comments-content'}"
+                                               target="_blank" th:text="${comment.content}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">系统日志</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" style="font-size: 12px;" th:each="log : ${logList}">
+                                            <span th:text="${#dates.format(log.createTime, 'yyyy-MM-dd hh:mm:ss')} + ' => '+ ${log.logDesc}"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div th:replace="admin/fragments/footer :: footer-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="admin/fragments/footer :: footer"></div>
+</body>
+</html>

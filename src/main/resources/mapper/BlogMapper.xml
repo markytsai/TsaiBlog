@@ -46,6 +46,48 @@
     </select>
 
 
-    
+    <!--根据条件查询文章-->
+    <select id="getBlogsByFilter" resultMap="baseResultMap" parameterType="com.ilsxh.blog.dto.BlogFilter">
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM
+        t_blog AS t
+        <where>
+            <if test="topic != null">
+                and t.blog_keyword LIKE CONCAT('%',#{topic, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="title != null">
+                and t.blog_title LIKE CONCAT('%',#{title, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="content != null">
+                and t.blog_content LIKE CONCAT('%',#{content, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="startTime != null">
+                and t.blog_add_time &gt;= #{startTime, jdbcType=INTEGER}
+            </if>
+            <if test="endTime != null">
+                and t.blog_add_time &lt;= #{endTime, jdbcType=INTEGER}
+            </if>
+        </where>
+        ORDER BY t.blog_add_time DESC
+    </select>
+
+    <insert id="addBlog" useGeneratedKeys="true" keyProperty="blogId" keyColumn="blog_id">
+        INSERT INTO t_blog (blog_title, blog_summary,
+        blog_keyword, blog_images, blog_clicknum, blog_content, blog_add_time, blog_update_time)
+        VALUES(#{blog.blogTitle}, #{blog.blogSummary}, #{blog.blogKeyword}, #{blog.blogImages},
+        #{blog.blogClicknum}, #{blog.blogContent}, #{blog.blogAddTime}, #{blog.blogUpdateTime})
+    </insert>
+
+    <delete id="deleteBlogById">
+        delete
+        from t_blog
+        where blog_id = #{blogId}
+    </delete>
+
+    <select id="getTotalBlogNum" resultType="Long">
+        select count(blog_id)
+        from t_blog
+    </select>
 
 </mapper>

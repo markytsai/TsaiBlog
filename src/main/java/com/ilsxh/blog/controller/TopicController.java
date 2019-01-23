@@ -25,7 +25,7 @@ public class TopicController {
         List<Topic> topicList = topicService.selectTopicList();
         model.addAttribute("topicList", topicList);
 
-        return "blogs-topic";
+        return "front/blogs-topic";
 
     }
 }

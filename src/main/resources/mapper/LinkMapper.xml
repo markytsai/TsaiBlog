@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ilsxh.blog.mapper.LinkMapper">
+
+    <resultMap id="linkResultMap" type="com.ilsxh.blog.entity.Link">
+        <id column="link_id" property="linkId" jdbcType="BIGINT"/>
+        <result column="link_name" property="linkName" jdbcType="VARCHAR"/>
+        <result column="link_url" property="linkUrl" jdbcType="VARCHAR"/>
+        <result column="link_logo" property="linkLogo" jdbcType="VARCHAR"/>
+        <result column="link_username" property="linkUsername" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <sql id="baseColumnList">
+        link_id, link_name, link_url, link_logo, link_username
+    </sql>
+    <select id="getLinks" resultMap="linkResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from t_link
+    </select>
+
+    <update id="updateLink">
+        update t_link
+        set link_name = #{link.linkName},
+        link_url = #{link.linkUrl},
+        link_logo = #{link.linkLogo},
+        link_username = #{link.linkUsername}
+        where link_id = #[link_linkId]
+    </update>
+
+    <insert id="addLink" useGeneratedKeys="true" keyProperty="linKId" keyColumn="link_id">
+        insert into t_link(link_name, link_url, link_logo, link_username)
+        values(#{link.linkName}, #{link.linkUrl}, #{link.linkLogo}, #{link.linKUsername})
+    </insert>
+
+    <delete id="deleteLinkById">
+        delete from t_link
+        where link_id = #{linkId}
+    </delete>
+
+    <select id="getTotalLinkNum" resultType="Long">
+        select count(link_id)
+        from t_link
+    </select>
+</mapper>
