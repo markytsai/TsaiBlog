@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Tsaizhenya的个人博客</title>
+    <title>Tsaizhenya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="tsaizhenya的个人博客"/>
+    <meta name="keywords" content="tsaizhenya"/>
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
           type='text/css'>
 
-    <link th:href="@{http://localhost:8081/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <!-- header -->
-<div th:include="common/header :: header"></div>
+<div class="header-stick-top" th:include="common/header :: header"></div>
 <!-- header -->
 <!-- content -->
 <div class="container">
@@ -26,37 +26,50 @@
             <div class="single-top">
 
                 <h3 class="page-nav">
-                    <strong>您现在的位置是: </strong><a th:href="@{/}">网站首页</a>&nbsp;>&nbsp;<a th:href="@{/about.html}">关于我</a>
+                    <strong>Your Location: </strong><a th:href="@{/}">Home</a>&nbsp;>&nbsp;<a th:href="@{/about.html}">Author</a>
                 </h3>
 
-                <p><strong>关于站长</strong></p>
+                <p><strong>About me</strong></p>
 
-                <p>蔡振亚，男，97年生，安徽人。</p>
+                <p>Tsaizhenya, Male, born in 1997.</p>
 
-                <p>建站时间：2019.01-2019.02。</p>
+                <p>Website creation time: Jun. 2019 to Feb. 2019</p>
 
-                <p>2018年8月至将来一直潜心研究Java，一边读书一边学习Java，完成该作品时、大四。</p>
+                <p>From Aug. 2018 to now, I have been studying Java for more than one year, Graduated in 3 months, I
+                    finished this website.</p>
 
-                <p><strong>为什么要做这个网站</strong></p>
+                <p><strong>Why This Java Website?</strong></p>
 
-                <p>（1）如果学过某个知识的话，写成Blog，在未来某个时刻其实可以很轻易的找到这份笔记，然后查看一下之前所学，温故而知新。</p>
+                <p>1. If you have learned a new certain piece of knowledge, noting it down is a considerable idea. You
+                    can easily find that note sometime in the future, check out what you have learned before and try to
+                    find brand new then.</p>
 
-                <p>（2）写文章或者Blog和看书是截然不同的。写文章的话，首先不仅要看懂书本上的内容，还要整理成自己的语言描述出来，其实能够在某种程度上加深自己对知识的理解。</p>
+                <p>1. If you have learned a new certain piece of knowledge, noting it down is a considerable idea. You
+                    can easily find that note sometime in the future, check out what you have learned before and try to
+                    find brand new then.</p>
 
-                <p>（3）持续写Blog的话，其实在未来的时候可以翻看自己的成长记录。</p>
+                <p>2. Writing an article is very different from reading a book. To write an accepted article, you must
+                    very first understand not only the contents, but also the description style of your own language. In
+                    fact, you can deepen your understanding of knowledge to some extent this way.</p>
 
-                <p>（4）持续写Blog能够看到自己一点一点的进步。人生毕竟是一场马拉松，而不是一场百米冲刺。</p>
+                <p>3. Keeping writing the blog can reflect your progress little by little. Life is a marathon, not a
+                    hundred-meter sprint, after all.
+                </p>
 
             </div>
             <div class="blog-content-right">
-                <h3 class="intro-card">我的名片</h3>
+                <h3 class="page-nav">My Profile</h3>
                 <div class="card" style="padding-top: 14px;padding-bottom: 4px;background-color: #d8d4d429;">
                     <img src="images/author.png" style="margin-left: 42px;width: 149px;height: 67px;">
                     <address style="width: 85%;margin-left: 18px;">
-                        <p style="margin-top: 12px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">职业：Java开发工程师，前端爱好者，历史学爱好者</p>
-                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">地址：广东省深圳市</p>
-                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">邮箱: <a href="#">tsaizheny@gmail.com</a></p>
-                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">扣扣: 2685246296</p>
+                        <p style="margin-top: 12px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">
+                            Position: Java Developer, amateur in front end and history</p>
+                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">
+                            Addresss: Shenzhen, Guangdong</p>
+                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">Mail:<a
+                                href="#"> tsaizheny@gmail.com</a></p>
+                        <p style="margin-top: 6px;background-color: #f6f6f6;padding-top: 4px;padding-bottom: 4px;">QQ:
+                            2685246296</p>
                     </address>
                 </div>
                 <!--start-twitter-weight-->

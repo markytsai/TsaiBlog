@@ -28,4 +28,8 @@ public class LinkService {
     public void deleteLinkById(int linkId) {
         linkMapper.deleteLinkById(linkId);
     }
+
+    public List<Link> selectLinkList() {
+        return linkMapper.selectLinkList();
+    }
 }

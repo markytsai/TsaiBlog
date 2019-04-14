@@ -1,9 +1,11 @@
 package com.ilsxh.blog.controller;
 
 import com.ilsxh.blog.entity.Blog;
+import com.ilsxh.blog.entity.Link;
 import com.ilsxh.blog.entity.Topic;
 import com.ilsxh.blog.service.BlogService;
 import com.ilsxh.blog.service.TopicService;
+import com.ilsxh.blog.service.admin.LinkService;
 import com.ilsxh.blog.service.admin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,12 +22,14 @@ public class BlogController {
     private BlogService blogService;
     private TopicService topicService;
     private UserService userService;
+    private LinkService linkService;
 
     @Autowired
-    public BlogController(BlogService blogService, TopicService topicService, UserService userService) {
+    public BlogController(BlogService blogService, TopicService topicService, UserService userService, LinkService linkService) {
         this.blogService = blogService;
         this.topicService = topicService;
         this.userService = userService;
+        this.linkService = linkService;
     }
 
     @RequestMapping("/blog/{blogId}")
@@ -57,6 +61,9 @@ public class BlogController {
 
         List<Blog> hotBlogList = blogService.selectHotBlogList();
         model.addAttribute("hotBlogList", hotBlogList);
+
+        List<Link> linkList = linkService.selectLinkList();
+        model.addAttribute("linkList", linkList);
 
         return "front/blogs";
     }

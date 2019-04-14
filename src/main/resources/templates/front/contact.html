@@ -8,11 +8,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Voguish a Blogging Category Flat Bootstarp Responsive Website Template | Contact :: w3layouts</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="tsaizhenya的个人博客"/>
+    <meta name="keywords" content="tsaizhenya"/>
     <!--<script type="application/x-javascript"> addEventListener("load", function () {-->
         <!--setTimeout(hideURLbar, 0);-->
     <!--}, false);-->
@@ -23,13 +23,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
           type='text/css'>
     <script src="js/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen"/>
 
 
-    <link th:href="@{http://localhost:8081/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
 
     <script src="js/responsiveslides.min.js"></script>
     <!--<script>-->
@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 <!-- header -->
-<div th:include="common/header :: header"></div>
+<div class="header-stick-top" th:include="common/header :: header"></div>
 <!--<div class="head-container">-->
     <!--<div class="header">-->
         <!--<div class="logo">-->

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -85,6 +84,7 @@ public class AdminController {
 //        metaCond.setType(Types.CATEGORY.getType());
 //        List<MetaDomain> metas = metaService.getMetas(metaCond);
 //        request.setAttribute("categories",metas);
+
         return "admin/blog_edit";
     }
 
@@ -131,7 +131,7 @@ public class AdminController {
         blog.setBlogContent(content);
         blog.setBlogClicknum(0);
         blog.setBlogKeyword("spring");
-        blog.setBlogAddTime(new Timestamp(new Date().getTime()));
+        blog.setBlogAddTime(new Timestamp(System.currentTimeMillis()));
 
         // 只允许博客文章有分类，防止作品被收入分类
 //        contentDomain.setTags(type.equals(Types.ARTICLE.getType()) ? tags : null);

@@ -1,22 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Tsaizhenya的个人博客</title>
+    <title>Tsaizhenya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="tsaizhenya的个人博客"/>
+    <meta name="keywords" content="tsaizhenya"/>
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
           type='text/css'>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
 
-    <link th:href="@{http://localhost:8081/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{http://localhost:8081/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <!-- header -->
-<div th:include="common/header :: header"></div>
+<div class="header-stick-top" th:include="common/header :: header"></div>
 <!-- header -->
 <!-- content -->
 <div class="container">
@@ -28,7 +29,7 @@
                     <p>
                     <h3 th:text="${blog.blogTitle}"></h3></p>
                 </div>
-                <div class="b-tag-weight" style="margin-top: -17px;">
+                <div class="b-tag-weight" style="margin-top: -17px;margin-bottom: -8px;">
                     <ul>
                         <li th:each="topic: ${blogRelatedTopicList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}" th:text="${topic.topicName}"/>
@@ -38,22 +39,28 @@
                 <div class="artical-links">
                     <ul style="padding-left: 0;">
                         <li>
-                            <small></small>
-                            <span th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"
-                                  style="margin-left: -4px;"/></li>
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <span th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/></li>
                         <li><a href="#">
-                            <small class="admin"></small>
-                            <span style="margin-left: -4px;">Tsaizhenya</span></a></li>
+                            <i class="fa fa-user"></i>
+                            <span>Administrator</span></a></li>
                         <li><a href="#">
-                            <small class="no"></small>
-                            <span style="margin-left: -4px;">暂无评论</span></a></li>
+                            <i class="fa fa-comments"></i>
+                            <span>暂无评论</span></a></li>
                         <li><a href="#">
-                            <small class="link"></small>
-                            <span style="margin-left: -4px;">参考链接</span></a></li>
+                            <i class="fa fa-link"></i>
+                            <span>参考链接</span></a></li>
                     </ul>
                 </div>
 
-                <p th:utext="${blog.blogContent}"></p>
+                <div id="blog-header">
+                    <blockquote class="abstract">
+                        Imagine having a tool that can automatically detect if you are using JPA and Hibernate properly.
+                        <a href="https://vladmihalcea.com/hypersistence-optimizer/">Hypersistence Optimizer</a> is that tool!
+                    </blockquote>
+                </div>
+
+                <div th:utext="${blog.blogContent}"></div>
 
             </div>
             <div class="blog-content-right">
@@ -65,7 +72,7 @@
                     </form>
                 </div>
                 <div class="b-tag-weight">
-                    <h3>标签墙</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;">标签墙</h3>
                     <ul>
                         <li th:each="topic: ${topicList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
@@ -75,7 +82,7 @@
                 </div>
                 <!--start-twitter-weight-->
                 <div class="twitter-weights">
-                    <h3>近期文章</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;">近期文章</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
                          th:each="blog : ${recentBlogList}">
                         <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
@@ -83,13 +90,18 @@
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>
 
-                    <a class="twittbtn" href="#">查看最近所有文章</a>
+                    <!--<a class="twittbtn" href="#">查看最近所有文章</a>-->
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
     <!-- content -->
+    <div class="back-to-top">
+        <p>
+            <a th:href="@{#}">Back to top</a>
+        </p>
+    </div>
 </div>
 <div th:include="common/footer :: footer"></div>
 

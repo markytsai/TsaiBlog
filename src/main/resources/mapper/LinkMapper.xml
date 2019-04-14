@@ -43,4 +43,10 @@
         select count(link_id)
         from t_link
     </select>
+    
+    <select id="selectLinkList" resultMap="linkResultMap">
+        SELECT
+        <include refid="baseColumnList"/>
+        from t_link
+    </select>
 </mapper>

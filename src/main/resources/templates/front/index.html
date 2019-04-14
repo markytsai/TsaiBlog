@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Tsaizhenya的个人博客</title>
+    <title>Tsaizhenya</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Tsaizhenya的个人博客"/>
+    <meta name="keywords" content="Tsaizhenya"/>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
           type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'/>
 
-    <link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
 
 </head>
 <body>
 <!-- header -->
-<div th:include="common/header :: header"></div>
+<div class="header-stick-top" th:include="common/header :: header"></div>
 <!--<div class="head-container" style="height: 80px;">-->
 <!--<div class="header">-->
 <!--<div class="logo">-->

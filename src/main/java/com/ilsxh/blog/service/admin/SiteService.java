@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,7 +38,7 @@ public class SiteService {
         Comment comment = new Comment();
         comment.setCommentId(1);
         comment.setCommentUrl("https://www.baidu.com");
-        comment.setCommentTime(new Timestamp(new Date().getTime()));
+        comment.setCommentTime(new Timestamp(System.currentTimeMillis()));
         comment.setCommentContent("真的是太棒啦！！！");
         commentList.add(comment);
         return commentList;

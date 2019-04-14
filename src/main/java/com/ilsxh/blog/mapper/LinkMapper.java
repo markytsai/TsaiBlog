@@ -17,4 +17,6 @@ public interface LinkMapper {
     void deleteLinkById(int linkId);
 
     Long getTotalLinkNum();
+
+    List<Link> selectLinkList();
 }

@@ -1,21 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Tsaizhenya的个人博客</title>
+    <title>Tsaizhenya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Tsaizhenya的个人博客"/>
+    <meta name="keywords" content="Tsaizhenya"/>
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet'
           type='text/css'>
-    <link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
 
 </head>
 <body>
 <!-- header -->
-<div th:include="common/header :: header"></div>
+<div class="header-stick-top" th:include="common/header :: header"></div>
 <!-- header -->
 <!-- Blog -->
 <div class="container">
@@ -34,30 +35,27 @@
                                     Tsaizenya</h6>
 
                             </div>
-                            <div class="blog-artical-info-text">
+                            <div class="blog-artical-info-text" style="margin-bottom: -10px;">
                                 <p th:text="${blog.blogSummary}"/>
                             </div>
                             <div class="artical-links">
                                 <ul style="padding-left: 0;">
                                     <li>
-                                        <small></small>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
                                         <span th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/></li>
                                     <li><a href="#">
-                                        <small class="admin"></small>
-                                        <span>Tsaizhenya</span></a></li>
+                                        <i class="fa fa-user"></i>
+                                        <span>Administrator</span></a></li>
                                     <li><a href="#">
-                                        <small class="no"></small>
+                                        <i class="fa fa-comments"></i>
                                         <span>暂无评论</span></a></li>
-                                    <li><a th:href="@{'/blog/' + ${blog.blogId}}">
-                                        <small class="posts"></small>
-                                        <span>查看博客详情</span></a></li>
                                     <li><a href="#">
-                                        <small class="link"></small>
+                                        <i class="fa fa-link"></i>
                                         <span>参考链接</span></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
+                        <!--<div class="clearfix"></div>-->
                     </div>
                 </div>
                 <!--start-blog-pagenate-->
@@ -92,7 +90,7 @@
                 </div>
 
                 <div class="b-tag-weight">
-                    <h3>标签墙</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;">标签墙</h3>
                     <ul>
                         <li th:each="topic: ${topicList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
@@ -102,7 +100,7 @@
                 </div>
 
                 <div class="twitter-weights">
-                    <h3>热点文章</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;">热点文章</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
                          th:each="blog : ${hotBlogList}">
                         <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
@@ -110,7 +108,15 @@
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>
 
-                    <a class="twittbtn" href="#">查看最近所有文章</a>
+                </div>
+
+                <div class="friend-link">
+                    <h3>友链</h3>
+                    <ul style="padding-left: initial;">
+                        <li th:each="link : ${linkList}" style="display: inline-block;">
+                            <a th:href="${link.linkUrl}" th:text="${link.linkName}" target="_blank"/>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
