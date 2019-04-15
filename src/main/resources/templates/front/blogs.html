@@ -11,6 +11,7 @@
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/blogs.css}" rel="stylesheet" type="text/css" media="all"/>
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
 
 </head>
@@ -23,42 +24,44 @@
     <div class="blog">
 
         <div class="blog-content">
+            <div class="col-md-12 featured-header">
+                <div class="latest-header">
+                    <div class="pull-left">
+                        <h2>Technology Spotlight</h2>
+                        <span id="date-id" class="date ng-binding">Monday, April 15</span>
+                    </div>
+                    <div class="pull-right">
+                        <!-- ngIf: canEdit -->
+                    </div>
+                </div>
+            </div>
             <div class="blog-content-left">
                 <div class="blog-articals">
 
                     <div class="blog-artical" th:each="blog : ${blogList}">
                         <div class="blog-artical-info">
                             <div class="blog-artical-info-head">
-                                <h2><a th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"></a></h2>
-                                <h6>Posted on <span
-                                        th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by
-                                    Tsaizenya</h6>
+                                <h2>
+                                    <a th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"
+                                       th:title="${blog.blogTitle}"></a>
+                                </h2>
+                                <div style="display: flex;">
+                                    <h6>Posted on <span
+                                            th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by
+                                        Tsaizenya</h6>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <h6>
+                                        <span>Reference material</span></a></li>
+                                    </h6>
+                                </div>
 
                             </div>
-                            <div class="blog-artical-info-text" style="margin-bottom: -10px;">
+                            <div class="blog-artical-info-text" style="margin-top: -15px;">
                                 <p th:text="${blog.blogSummary}"/>
-                            </div>
-                            <div class="artical-links">
-                                <ul style="padding-left: 0;">
-                                    <li>
-                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/></li>
-                                    <li><a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Administrator</span></a></li>
-                                    <li><a href="#">
-                                        <i class="fa fa-comments"></i>
-                                        <span>暂无评论</span></a></li>
-                                    <li><a href="#">
-                                        <i class="fa fa-link"></i>
-                                        <span>参考链接</span></a></li>
-                                </ul>
                             </div>
                         </div>
                         <!--<div class="clearfix"></div>-->
                     </div>
                 </div>
-                <!--start-blog-pagenate-->
                 <nav>
                     <ul class="pagination">
                         <li>
@@ -88,9 +91,25 @@
                         <input type="submit" value="">
                     </form>
                 </div>
+                <div style="padding-top: 16px;">
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Profile</h3>
+                    <ul class="person-intro">
+                        <li class="clearfix" style="">
+                            <div class="interviewee-picture"
+                                 style="">
+                                <img src="/images/author_half.jpg">
+                            </div>
 
+                            <div class="author-name"><strong>Tsai Zhenya</strong></div>
+                            <div class="author-summary"><p>Tsai Zhenya will be a junior Staff Software
+                                Engineer at Youzan, which for the last 7 years is providing SaaS. Outside of work,
+                                Evan enjoys being a dad and slowly running long-distance races.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <div class="b-tag-weight">
-                    <h3 style="font-size: 1.2em;font-weight: 600;">标签墙</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Tags Wall</h3>
                     <ul>
                         <li th:each="topic: ${topicList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
@@ -98,27 +117,19 @@
                         </li>
                     </ul>
                 </div>
-
+                <!--start-twitter-weight-->
                 <div class="twitter-weights">
-                    <h3 style="font-size: 1.2em;font-weight: 600;">热点文章</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Recent Post</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
-                         th:each="blog : ${hotBlogList}">
+                         th:each="blog : ${recentBlogList}">
                         <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
                                                                            th:text="${blog.blogTitle}"></a></h5>
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>
 
-                </div>
+                    <!--<a class="twittbtn" href="#">查看最近所有文章</a>-->
 
-                <div class="friend-link">
-                    <h3>友链</h3>
-                    <ul style="padding-left: initial;">
-                        <li th:each="link : ${linkList}" style="display: inline-block;">
-                            <a th:href="${link.linkUrl}" th:text="${link.linkName}" target="_blank"/>
-                        </li>
-                    </ul>
                 </div>
-
             </div>
             <div class="clearfix"></div>
 
@@ -131,5 +142,19 @@
 <script src="js/responsiveslides.min.js"></script>
 <script type="text/javascript" src="js/jquery.flexisel.js"></script>
 
+<script>
+
+    window.onload = clock();//setInterval(clock, 1000);
+
+    function clock() {
+        var d = new Date();
+        var date = d.getDate();
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        month = monthArr[month];
+        document.getElementById("date-id").innerHTML = date + " " + month + ", " + year;
+    }
+</script>
 </body>
 </html>

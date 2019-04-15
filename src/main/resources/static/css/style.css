@@ -39,7 +39,7 @@ body a {
     padding-left: 78px;
     padding-right: 85px;
     background-color: white;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     background-color: #343a40;
 }
 
@@ -957,9 +957,9 @@ h3.m_3 {
 
 }
 
-.blog a {
-    text-decoration: none;
-}
+/*.blog a {*/
+    /*text-decoration: none;*/
+/*}*/
 
 .blog-head-left {
     float: left;
@@ -999,6 +999,7 @@ h3.m_3 {
     padding: 1em;
     background-color: white;
     /*border: 1px solid #D8DADC;*/
+    border-right: 1px dotted #999999;
 }
 
 .blog-content-right {
@@ -1015,14 +1016,14 @@ h3.m_3 {
     margin: 0.5em 0;
     display: block;
     font-weight: 700;
-    text-decoration: none;
+    /*text-decoration: none;*/
     text-transform: captalized;
     font-family: 'Libre Baskerville', serif;
 }
 
-.blog-artical-info-head h2 a:hover {
-    color: #a29997;
-}
+/*.blog-artical-info-head h2 a:hover {*/
+    /*color: #4E9ECA;*/
+/*}*/
 
 .b-tag-weight ul {
     margin: 0;
@@ -1209,6 +1210,10 @@ i.adm1 {
     border-bottom: 1px solid #E7E4E4;
 }
 
+.twitter-weight-grid h5 a {
+    color: #302e2e;
+}
+
 .twitter-weight-grid p a {
     color: #a29997;
     transition: 0.5s all;
@@ -1256,9 +1261,9 @@ i.adm1 {
     color: #000;
 }
 
-.b-tag-weight {
-    margin-top: 2em;
-}
+/*.b-tag-weight {*/
+    /*margin-top: 2em;*/
+/*}*/
 
 .b-tag-weight h3 {
     font-size: 1.4em;
@@ -1712,6 +1717,7 @@ i.tag {
     width: 69%;
     padding: 1em;
     background-color: white;
+    border-right: 1px dotted #999999;
     /*border: 1px solid #D8DADC;*/
 }
 
@@ -3032,4 +3038,5 @@ blockquote a {
     position: sticky;
     top: 0;
     z-index: 100;
+    margin-bottom: 20px;
 }

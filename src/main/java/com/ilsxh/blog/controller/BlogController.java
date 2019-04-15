@@ -65,6 +65,9 @@ public class BlogController {
         List<Link> linkList = linkService.selectLinkList();
         model.addAttribute("linkList", linkList);
 
+        List<Blog> recentBlogList = blogService.selectRecentBlogs();
+        model.addAttribute("recentBlogList", recentBlogList);
+
         return "front/blogs";
     }
 

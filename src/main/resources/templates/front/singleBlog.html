@@ -13,6 +13,8 @@
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/blogs.css}" rel="stylesheet" type="text/css" media="all"/>
+
     <link th:href="@{/css/flexslider.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
@@ -26,8 +28,7 @@
         <div class="single">
             <div class="single-top">
                 <div class="blog-title">
-                    <p>
-                    <h3 th:text="${blog.blogTitle}"></h3></p>
+                    <h3 th:text="${blog.blogTitle}"></h3>
                 </div>
                 <div class="b-tag-weight" style="margin-top: -17px;margin-bottom: -8px;">
                     <ul>
@@ -46,21 +47,33 @@
                             <span>Administrator</span></a></li>
                         <li><a href="#">
                             <i class="fa fa-comments"></i>
-                            <span>暂无评论</span></a></li>
-                        <li><a href="#">
+                            <span>No comments</span></a></li>
+                        <li><a href="#reference">
                             <i class="fa fa-link"></i>
-                            <span>参考链接</span></a></li>
+                            <span>Reference meterial</span></a></li>
                     </ul>
                 </div>
 
                 <div id="blog-header">
-                    <blockquote class="abstract">
-                        Imagine having a tool that can automatically detect if you are using JPA and Hibernate properly.
-                        <a href="https://vladmihalcea.com/hypersistence-optimizer/">Hypersistence Optimizer</a> is that tool!
-                    </blockquote>
+                    <blockquote class="abstract" th:utext="${blog.blogSummary}"/>
                 </div>
 
-                <div th:utext="${blog.blogContent}"></div>
+                <div class="article-content" th:utext="${blog.blogContent}"></div>
+
+                <div id="reference" class="reference-list" style="padding-top: 51px;margin-top: -51px;">
+                    <div>
+                        <span th:text="[1]"></span>
+                        <span>reference1</span>
+                    </div>
+                    <div>
+                        <span th:text="[2]"></span>
+                        <span>reference1</span>
+                    </div>
+                    <div>
+                        <span th:text="[3]"></span>
+                        <span>reference1</span>
+                    </div>
+                </div>
 
             </div>
             <div class="blog-content-right">
@@ -71,8 +84,25 @@
                         <input type="submit" value="">
                     </form>
                 </div>
+                <div style="padding-top: 16px;">
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Profile</h3>
+                    <ul class="person-intro">
+                        <li class="clearfix" style="">
+                            <div class="interviewee-picture"
+                                 style="">
+                                <img src="/images/author_half.jpg">
+                            </div>
+
+                            <div class="author-name"><strong>Tsai Zhenya</strong></div>
+                            <div class="author-summary"><p>Tsai Zhenya will be a junior Staff Software
+                                Engineer at Youzan, which for the last 7 years is providing SaaS. Outside of work,
+                                Evan enjoys being a dad and slowly running long-distance races.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <div class="b-tag-weight">
-                    <h3 style="font-size: 1.2em;font-weight: 600;">标签墙</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Tags Wall</h3>
                     <ul>
                         <li th:each="topic: ${topicList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
@@ -82,15 +112,13 @@
                 </div>
                 <!--start-twitter-weight-->
                 <div class="twitter-weights">
-                    <h3 style="font-size: 1.2em;font-weight: 600;">近期文章</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Recent Post</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
                          th:each="blog : ${recentBlogList}">
                         <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
                                                                            th:text="${blog.blogTitle}"></a></h5>
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>
-
-                    <!--<a class="twittbtn" href="#">查看最近所有文章</a>-->
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -108,6 +136,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/responsiveslides.min.js"></script>
 <script src="js/blog.js"></script>
+
 
 </body>
 </html>

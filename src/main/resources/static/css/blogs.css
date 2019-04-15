@@ -1,0 +1,50 @@
+.latest-header div h2 {
+    font-weight: 600;
+    display: inline-block;
+    border-bottom: 0 solid #E6E7E9;
+    color: #222635;
+    margin: 0;
+}
+
+.latest-header div span {
+    font-weight: 200;
+    font-size: 20px;
+    color: #6d7b80;
+    margin-left: 6px;
+    padding-top: 0px;
+    display: inline-block;
+}
+
+.blog-title h3 {
+    font-family: raleway;;
+    font-size: 32px;
+}
+
+.author img {
+    width: 100%;
+    padding: 10px 3px;
+}
+
+.person-intro {
+    padding: 15px 3px;
+}
+
+.person-intro {
+    padding: 2px 0;
+}
+.person-intro li {
+    list-style: none;
+}
+
+.person-intro li div:first-child {
+    float: left;width: 100px;margin-bottom: 0px;margin-right: 15px;
+}
+
+.person-intro li div img {
+    width: 100%;
+    height: auto;
+}
+
+.author-name {
+    font-weight: bold;
+}
