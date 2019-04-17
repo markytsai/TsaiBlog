@@ -115,7 +115,7 @@
                     <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Recent Post</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
                          th:each="blog : ${recentBlogList}">
-                        <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
+                        <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogUrl}}"
                                                                            th:text="${blog.blogTitle}"></a></h5>
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>

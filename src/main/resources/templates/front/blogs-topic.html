@@ -27,7 +27,7 @@
                     <div class="blog-artical" th:each="blog : ${blogList}">
                         <div class="blog-artical-info">
                             <div class="blog-artical-info-head">
-                                <h2><a th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"></a></h2>
+                                <h2><a th:href="@{'/blog/' + ${blog.blogUrl}}" th:text="${blog.blogTitle}"></a></h2>
                                 <h6>Posted on <span  th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by Tsaizenya</h6>
 
                             </div>
@@ -99,7 +99,7 @@
                     <h3 style="font-size: 1.2em;font-weight: 600;">热点文章</h3>
                     <div class="twitter-weight-grid" style="padding-bottom: 2px;"
                          th:each="blog : ${hotBlogList}">
-                        <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogId}}"
+                        <h5 style="font-size: 13px;margin-bottom: 0px;"><a th:href="@{'/blog/' + ${blog.blogUrl}}"
                                                                            th:text="${blog.blogTitle}"></a></h5>
                         <i th:text="${#dates.format(blog.blogAddTime, 'MM-dd')}"/>
                     </div>

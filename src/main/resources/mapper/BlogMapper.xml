@@ -23,7 +23,7 @@
         select
         <include refid="baseColumnList"/>
         from t_blog
-        where blog_id = #{blogId}
+        where blog_title = #{blogId}
     </select>
 
     <select id="selectBlogList" resultMap="baseResultMap">

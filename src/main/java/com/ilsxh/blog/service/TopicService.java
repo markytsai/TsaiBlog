@@ -21,7 +21,9 @@ public class TopicService {
     }
 
     public List<Blog> getBlogListByTopicId(Integer topicId) {
-        return topicMapper.getBlogListByTopicId(topicId);
+        List<Blog> blogList = topicMapper.getBlogListByTopicId(topicId);
+        blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
+        return blogList;
     }
 
     @Loggable(descpition = "获取问题的标签属性", include = "blogId")

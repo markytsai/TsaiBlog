@@ -32,16 +32,16 @@ public class BlogController {
         this.linkService = linkService;
     }
 
-    @RequestMapping("/blog/{blogId}")
-    public String getBlogDetai(@PathVariable Integer blogId, Model model) {
+    @RequestMapping("/blog/{blogUrl}")
+    public String getBlogDetai(@PathVariable String blogUrl, Model model) {
 
-        Blog blog = blogService.selectBlogByBlogId(blogId);
+        Blog blog = blogService.selectBlogByBlogId(blogUrl);
         model.addAttribute("blog", blog);
 
         List<Topic> topicList = topicService.selectTopicList();
         model.addAttribute("topicList", topicList);
 
-        List<Topic> blogRelatedTopicList = topicService.selectRelatedTopics(blogId);
+        List<Topic> blogRelatedTopicList = topicService.selectRelatedTopics(blog.getBlogId());
         model.addAttribute("blogRelatedTopicList", blogRelatedTopicList);
 
         List<Blog> recentBlogList = blogService.selectRecentBlogs();
@@ -51,7 +51,7 @@ public class BlogController {
     }
 
 
-    @RequestMapping("/blogs")
+    @RequestMapping(value = {"/blogs", "/"})
     public String getAllBlogs(Model model) {
         List<Blog> blogList = blogService.selectBlogList();
         model.addAttribute("blogList", blogList);

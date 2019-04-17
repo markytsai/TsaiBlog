@@ -61,7 +61,8 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group">
-                                        <li class="list-group-item" style="font-size: 12px;" th:each="blog : ${blogList}">
+                                        <li class="list-group-item" style="font-size: 12px;"
+                                            th:each="blog : ${blogList}">
                                             <span class="badge badge-primary" th:title="${blog.blogClicknum}+'次浏览'"
                                                   th:text="${blog.blogClicknum}"></span>
                                             <a target="_blank" th:href="@{'/blog/' + ${blog.blogId}}"
@@ -85,7 +86,8 @@
                                     </div>
                                     <ul class="list-group"
                                         th:unless="${commentList}==null and ${#lists.size(commentList)}==0">
-                                        <li class="list-group-item" style="font-size: 12px;" th:each="comment : ${commentList}">
+                                        <li class="list-group-item" style="font-size: 12px;"
+                                            th:each="comment : ${commentList}">
                                             <div th:if="${comment.url} != null and ${comment.url} != ''"
                                                  style="padding-bottom: 3px;">
                                                 <a th:href="@{${comment.url}}" target="_blank"

@@ -23,35 +23,43 @@ public class BlogService {
     private RedisService redisService;
 
     @Loggable(descpition = "查看博客详情", include = "blogId")
-    public Blog selectBlogByBlogId(Integer blogId) {
-        return blogMapper.selectBlogByBlogId(blogId);
+    public Blog selectBlogByBlogId(String blogUrl) {
+        Blog blog = blogMapper.selectBlogByBlogId(blogUrl.replace("-", " "));
+        blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-"));
+        return blog;
     }
 
     @Loggable(descpition = "查询博客列表")
     public List<Blog> selectBlogList() {
         List<Blog> blogList = redisService.getList(BlogKey.blogListKey, "blogList", Blog.class);
         if (blogList != null) {
+            blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
             return blogList;
         }
         blogList = blogMapper.selectBlogList();
         redisService.setList(BlogKey.blogListKey, "blogList", blogList);
-        return  blogList;
+        blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
+        return blogList;
     }
 
     @Loggable(descpition = "获取最近博客")
     public List<Blog> selectRecentBlogs() {
-        return blogMapper.selectRecentBlogs();
+        List<Blog> blogList = blogMapper.selectRecentBlogs();
+        blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
+        return blogList;
     }
 
     @Loggable(descpition = "获取热门博客")
     public List<Blog> selectHotBlogList() {
         List<Blog> blogList = redisService.getList(BlogKey.hotBlogListKey, "blogList", Blog.class);
         if (blogList != null) {
+            blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
             return blogList;
         }
         blogList = blogMapper.selectHotBlogs();
         redisService.setList(BlogKey.hotBlogListKey, "blogList", blogList);
-        return  blogList;
+        blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
+        return blogList;
     }
 
     public void addBlog(Blog blog) {

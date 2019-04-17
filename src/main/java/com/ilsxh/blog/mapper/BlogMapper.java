@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface BlogMapper {
 
-    Blog selectBlogByBlogId(Integer blogId);
+    Blog selectBlogByBlogId(String blogUrl);
 
     List<Blog> selectBlogList();
 

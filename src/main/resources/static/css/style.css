@@ -71,7 +71,7 @@ body a {
 
 .logo {
     float: left;
-    padding: 1em 0;
+    padding: 10px 0;
 }
 
 .logo a {
@@ -151,7 +151,7 @@ body a {
 
 .logo div h2 a {
     color: white;
-    letter-spacing: 3px;
+    /*letter-spacing: 3px;*/
     font-family: Open-Sans, Sans-Serif;
 }
 
@@ -1012,7 +1012,7 @@ h3.m_3 {
 
 .blog-artical-info-head h2 a {
     color: #26313b;
-    font-size: 0.7em;
+    font-size: 28px;
     margin: 0.5em 0;
     display: block;
     font-weight: 700;
@@ -3038,5 +3038,9 @@ blockquote a {
     position: sticky;
     top: 0;
     z-index: 100;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
+
+/*.container {*/
+    /*padding-top: 20px;*/
+/*}*/

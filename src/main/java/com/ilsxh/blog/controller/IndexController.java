@@ -10,7 +10,7 @@ public class IndexController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping(value = {"/", "/index"})
+    @RequestMapping("/test")
     public String returnIndex() {
         return "front/index";
     }
@@ -23,5 +23,10 @@ public class IndexController {
     @RequestMapping("/about")
     public String aboutMe() {
         return "front/about";
+    }
+
+    @RequestMapping("/tutorials/git")
+    public String toTutorialGit() {
+        return "front/tutorials/tutorial_git";
     }
 }
