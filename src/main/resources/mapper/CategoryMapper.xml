@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ilsxh.blog.mapper.TopicMapper">
+<mapper namespace="com.ilsxh.blog.mapper.CategoryMapper">
 
-    <resultMap id="topicResultMap" type="com.ilsxh.blog.entity.Topic">
+    <resultMap id="topicResultMap" type="com.ilsxh.blog.entity.Category">
         <id column="topic_id" property="topicId" jdbcType="BIGINT"/>
         <result column="topic_name" property="topicName" jdbcType="BIGINT"/>
         <result column="relate_blog_num" property="relateBlogNum" jdbcType="BIGINT"/>
@@ -40,7 +40,7 @@
     <select id="selectTopicByTopicId" resultMap="topicResultMap">
         select *
         from t_topic
-        where topic_id = @{topicId}
+        where topic_id = #{categoryId}
     </select>
 
     <select id="getBlogListByTopicId" resultMap="baseBlogResultMap">
@@ -48,7 +48,7 @@
         <include refid="baseBlogColumnList"/>
         from t_blog as b
         inner join mid_blog_topic as mbt on b.blog_id = mbt.blog_id
-        where mbt.topic_id = #{topicId}
+        where mbt.topic_id = #{categoryId}
 
     </select>
 

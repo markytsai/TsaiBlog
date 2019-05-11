@@ -1010,15 +1010,19 @@ h3.m_3 {
     background-color: white;
 }
 
+.blog-artical-info-head {
+    margin-bottom: 10px;
+}
+
 .blog-artical-info-head h2 a {
     color: #26313b;
-    font-size: 28px;
+    font-size: 22px;
     margin: 0.5em 0;
     display: block;
     font-weight: 700;
     /*text-decoration: none;*/
-    text-transform: captalized;
-    font-family: 'Libre Baskerville', serif;
+    /*text-transform: captalized;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*.blog-artical-info-head h2 a:hover {*/
@@ -1085,7 +1089,6 @@ i.adm1 {
     color: #302e2e;
     font-size: 1em;
     line-height: 1.8em;
-    margin: 1em 0;
 }
 
 .blog-artical-info-text p a {
@@ -1096,7 +1099,7 @@ i.adm1 {
 }
 
 .blog-artical {
-    /*margin-bottom: 2em;*/
+    margin-bottom: 10px;
     border-bottom: #ddd 0.5px solid;
 }
 
@@ -1212,6 +1215,7 @@ i.adm1 {
 
 .twitter-weight-grid h5 a {
     color: #302e2e;
+    font-size: 16px;
 }
 
 .twitter-weight-grid p a {
@@ -1532,13 +1536,25 @@ i.adm1 {
     padding: 2em;
 }
 
-.single-top p {
-    color: #333333;
-    font-size: 1em;
-    font-weight: 400;
-    /*margin: 1em 0;*/
-    line-height: 1.5em;
+.article-content p {
+    color: #222635;
+    font-size: 16px;
+    font-family: Segoe UI;
+    line-height: 22px;
 }
+
+.article-content div{
+    padding: 2px 0;
+}
+/*.single-top p {*/
+    /*color: #333333;*/
+    /*font-size: 1em;*/
+    /*font-weight: 400;*/
+    /*!*margin: 1em 0;*!*/
+    /*line-height: 1.5em;*/
+/*}*/
+
+
 
 .sucss-top ul {
     padding: 0;
@@ -1796,10 +1812,10 @@ a.b-home:hover {
     vertical-align: middle;
 }
 
-.artical-links ul li a {
-    color: #666;
-    padding-left: 20px;
-}
+/*.artical-links ul li a {*/
+    /*color: #666;*/
+    /*padding-left: 20px;*/
+/*}*/
 
 .artical-links ul li a:hover {
     color: #a29997;
@@ -1807,6 +1823,7 @@ a.b-home:hover {
 
 .artical-links ul li {
     display: inline-block;
+    padding-right: 20px;
 }
 
 .artical-links ul li a span {

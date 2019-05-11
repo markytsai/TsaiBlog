@@ -23,7 +23,7 @@
 <!-- header -->
 <!-- content -->
 <div class="container">
-    <div class="content-top" style="margin-left: 25px;margin-right: 25px;">
+    <div class="content-top" style="margin-left: 25px;margin-right: 25px;margin-top: 30px;">
 
         <div class="single">
             <div class="single-top">
@@ -32,25 +32,21 @@
                 </div>
                 <div class="b-tag-weight" style="margin-top: -17px;margin-bottom: -8px;">
                     <ul>
-                        <li th:each="topic: ${blogRelatedTopicList}">
+                        <li th:each="topic: ${blogRelatedCategoryList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}" th:text="${topic.topicName}"/>
                         </li>
                     </ul>
                 </div>
                 <div class="artical-links">
                     <ul style="padding-left: 0;">
-                        <li>
-                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>
                             <span th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/></li>
-                        <li><a href="#">
-                            <i class="fa fa-user"></i>
-                            <span>Administrator</span></a></li>
-                        <li><a href="#">
-                            <i class="fa fa-comments"></i>
-                            <span>No comments</span></a></li>
-                        <li><a href="#reference">
-                            <i class="fa fa-link"></i>
-                            <span>Reference meterial</span></a></li>
+                        <li><i class="fa fa-user"></i>
+                            <span>Mark</span></li>
+                        <li><i class="fa fa-comments-o"></i>
+                            <span>comment(0)</span></li>
+                        <li><i class="fa fa-eye"></i>
+                            <span th:text="'read(' + ${blog.blogClicknum} + ')'"/></span></li>
                     </ul>
                 </div>
 
@@ -96,7 +92,7 @@
                             <div class="author-name"><strong>Tsai Zhenya</strong></div>
                             <div class="author-summary"><p>Tsai Zhenya will be a junior Staff Software
                                 Engineer at Youzan, which for the last 7 years is providing SaaS. Outside of work,
-                                Evan enjoys being a dad and slowly running long-distance races.</p>
+                                I enjoy slowly running long-distance races.</p>
                             </div>
                         </li>
                     </ul>
@@ -104,7 +100,7 @@
                 <div class="b-tag-weight">
                     <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Tags Wall</h3>
                     <ul>
-                        <li th:each="topic: ${topicList}">
+                        <li th:each="topic: ${categoryList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
                                th:text="${topic.topicName} + '(' + ${topic.relateBlogNum} + ')'"/>
                         </li>
@@ -136,7 +132,8 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/responsiveslides.min.js"></script>
 <script src="js/blog.js"></script>
-
+<script src="js/header.js"></script>
+<script type="text/javascript">window.onload = date_time('date_time');</script>
 
 </body>
 </html>

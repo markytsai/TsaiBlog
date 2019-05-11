@@ -1,10 +1,10 @@
 package com.ilsxh.blog.controller;
 
 import com.ilsxh.blog.entity.Blog;
+import com.ilsxh.blog.entity.Category;
 import com.ilsxh.blog.entity.Link;
-import com.ilsxh.blog.entity.Topic;
 import com.ilsxh.blog.service.BlogService;
-import com.ilsxh.blog.service.TopicService;
+import com.ilsxh.blog.service.CategoryService;
 import com.ilsxh.blog.service.admin.LinkService;
 import com.ilsxh.blog.service.admin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ import java.util.List;
 public class BlogController {
 
     private BlogService blogService;
-    private TopicService topicService;
+    private CategoryService categoryService;
     private UserService userService;
     private LinkService linkService;
 
     @Autowired
-    public BlogController(BlogService blogService, TopicService topicService, UserService userService, LinkService linkService) {
+    public BlogController(BlogService blogService, CategoryService categoryService, UserService userService, LinkService linkService) {
         this.blogService = blogService;
-        this.topicService = topicService;
+        this.categoryService = categoryService;
         this.userService = userService;
         this.linkService = linkService;
     }
@@ -38,11 +38,11 @@ public class BlogController {
         Blog blog = blogService.selectBlogByBlogId(blogUrl);
         model.addAttribute("blog", blog);
 
-        List<Topic> topicList = topicService.selectTopicList();
-        model.addAttribute("topicList", topicList);
+        List<Category> categoryList = categoryService.selectTopicList();
+        model.addAttribute("categoryList", categoryList);
 
-        List<Topic> blogRelatedTopicList = topicService.selectRelatedTopics(blog.getBlogId());
-        model.addAttribute("blogRelatedTopicList", blogRelatedTopicList);
+        List<Category> blogRelatedCategoryList = categoryService.selectRelatedTopics(blog.getBlogId());
+        model.addAttribute("blogRelatedTopicList", blogRelatedCategoryList);
 
         List<Blog> recentBlogList = blogService.selectRecentBlogs();
         model.addAttribute("recentBlogList", recentBlogList);
@@ -56,8 +56,8 @@ public class BlogController {
         List<Blog> blogList = blogService.selectBlogList();
         model.addAttribute("blogList", blogList);
 
-        List<Topic> topicList = topicService.selectTopicList();
-        model.addAttribute("topicList", topicList);
+        List<Category> categoryList = categoryService.selectTopicList();
+        model.addAttribute("categoryList", categoryList);
 
         List<Blog> hotBlogList = blogService.selectHotBlogList();
         model.addAttribute("hotBlogList", hotBlogList);

@@ -1,6 +1,6 @@
 package com.ilsxh.blog.entity;
 
-public class Topic {
+public class Category {
     private Integer topicId;
     private String topicName;
     private Integer relateBlogNum;

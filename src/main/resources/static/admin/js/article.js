@@ -1,6 +1,18 @@
 /**
  * Created by 13 on 2017/2/22.
  */
+
+// $('#summernote').summernote({
+//     placeholder: 'Hello stand alone ui',
+//     tabsize: 2,
+//     height: 100
+// });
+
+$(document).ready(function() {
+    $('#summernote').summernote({height: 300});
+});
+
+
 // Tags Input
 $('#tags').tagsInput({
     width: '100%',

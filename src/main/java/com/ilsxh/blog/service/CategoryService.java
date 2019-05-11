@@ -2,33 +2,33 @@ package com.ilsxh.blog.service;
 
 import com.ilsxh.blog.annotation.Loggable;
 import com.ilsxh.blog.entity.Blog;
-import com.ilsxh.blog.entity.Topic;
-import com.ilsxh.blog.mapper.TopicMapper;
+import com.ilsxh.blog.entity.Category;
+import com.ilsxh.blog.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TopicService {
+public class CategoryService {
 
     @Autowired
-    private TopicMapper topicMapper;
+    private CategoryMapper categoryMapper;
 
     @Loggable(descpition = "获取热点标签")
-    public List<Topic> selectTopicList() {
-        return topicMapper.selectTopicList();
+    public List<Category> selectTopicList() {
+        return categoryMapper.selectTopicList();
     }
 
-    public List<Blog> getBlogListByTopicId(Integer topicId) {
-        List<Blog> blogList = topicMapper.getBlogListByTopicId(topicId);
+    public List<Blog> getBlogListByTopicId(Integer categoryId) {
+        List<Blog> blogList = categoryMapper.getBlogListByTopicId(categoryId);
         blogList.stream().forEach(blog -> blog.setBlogUrl(blog.getBlogTitle().replace(" ", "-")));
         return blogList;
     }
 
     @Loggable(descpition = "获取问题的标签属性", include = "blogId")
-    public List<Topic> selectRelatedTopics(Integer blogId) {
-        List<Topic> list = topicMapper.selectRelatedTopics(blogId);
+    public List<Category> selectRelatedTopics(Integer blogId) {
+        List<Category> list = categoryMapper.selectRelatedTopics(blogId);
         return list;
     }
 }

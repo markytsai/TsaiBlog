@@ -1,25 +1,28 @@
 .latest-header div h2 {
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 20px;
     display: inline-block;
-    border-bottom: 0 solid #E6E7E9;
+    border-left: #666 5px solid;
+    padding-left: 10px;
     color: #222635;
     margin: 0;
     font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
 
 .latest-header div span {
-    font-weight: 200;
     font-size: 20px;
-    color: #6d7b80;
+    color: black;
     margin-left: 6px;
     padding-top: 0px;
     display: inline-block;
 }
 
 .blog-title h3 {
-    font-family: raleway;;
-    font-size: 32px;
+    /*font-family: raleway;;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
     font-weight: bold;
+    color: #26313b;
 }
 
 .author img {

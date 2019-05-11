@@ -19,11 +19,15 @@
     padding: 0;
 }
 
-.header-bottom .portals li {
+.header-bottom ul li {
     display: inline-block;
     padding: 3px 5px;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
     color: #6d7b80;
+}
+
+.header-bottom ul li a:hover {
+    text-decoration: underline;
 }

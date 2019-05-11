@@ -26,8 +26,8 @@
         <div class="blog-content">
             <div class="col-md-12 featured-header">
                 <div class="latest-header">
-                    <div class="pull-left">
-                        <h2>Technology Spotlight</h2>
+                    <div class="">
+                        <h2>Java has involved to </h2>
                         <span id="date-id" class="date ng-binding">Monday, April 15</span>
                     </div>
                     <div class="pull-right">
@@ -48,10 +48,7 @@
                                 <div style="display: flex;">
                                     <h6>Posted on <span
                                             th:text="${#dates.format(blog.blogAddTime, 'yyyy-MM-dd hh:mm:ss')}"/> by
-                                        Tsaizenya</h6>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <h6>
-                                        <span>Reference material</span></a></li>
-                                    </h6>
+                                        Tsaizenya</h6>
                                 </div>
 
                             </div>
@@ -92,7 +89,8 @@
                     </form>
                 </div>
                 <div style="padding-top: 16px;">
-                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Profile</h3>
+                    <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;font-family: 'Libre Baskerville', serif;">
+                        Profile</h3>
                     <ul class="person-intro">
                         <li class="clearfix" style="">
                             <div class="interviewee-picture"
@@ -111,7 +109,7 @@
                 <div class="b-tag-weight">
                     <h3 style="font-size: 1.2em;font-weight: 600;border-bottom: #000 2px solid;">Tags Wall</h3>
                     <ul>
-                        <li th:each="topic: ${topicList}">
+                        <li th:each="topic: ${categoryList}">
                             <a th:href="@{'/topic/' + ${topic.topicId}}"
                                th:text="${topic.topicName} + '(' + ${topic.relateBlogNum} + ')'"/>
                         </li>
@@ -139,6 +137,8 @@
 <div th:include="common/footer :: footer"></div>
 <script src="js/jquery.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/header.js"></script>
+<script type="text/javascript">window.onload = date_time('date_time');</script>
 <script src="js/responsiveslides.min.js"></script>
 <script type="text/javascript" src="js/jquery.flexisel.js"></script>
 
@@ -156,5 +156,6 @@
         document.getElementById("date-id").innerHTML = date + " " + month + ", " + year;
     }
 </script>
+
 </body>
 </html>
